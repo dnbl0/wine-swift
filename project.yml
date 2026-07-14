@@ -24,6 +24,8 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.byosomm.app
         SWIFT_VERSION: "6.0"
+        SDKROOT: iphoneos
+        SUPPORTED_PLATFORMS: "iphoneos iphonesimulator"
         DEVELOPMENT_TEAM: ""
         MARKETING_VERSION: "1.0"
         CURRENT_PROJECT_VERSION: "1"
