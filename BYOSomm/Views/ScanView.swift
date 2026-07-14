@@ -360,16 +360,3 @@ struct ScanResultView: View {
         }
     }
 }
-
-private struct FlexibleChips: View {
-    let items: [String]
-    let color: Color
-
-    var body: some View {
-        FlowLayout(spacing: 8) {
-            ForEach(items, id: \.self) { item in
-                TagChip(item, color: color)
-            }
-        }
-    }
-}
