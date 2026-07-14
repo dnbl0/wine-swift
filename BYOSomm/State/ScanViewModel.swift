@@ -9,6 +9,7 @@ enum ScanState {
 }
 
 @Observable
+@MainActor
 final class ScanViewModel {
     var scanState: ScanState = .idle
     var inputText: String = ""
@@ -31,10 +32,9 @@ final class ScanViewModel {
         let query = inputText
         scanState = .processing(query)
 
-        Task { @MainActor in
+        Task {
             try? await Task.sleep(for: .seconds(Double.random(in: 2.2...3.0)))
             let wine = Self.simulateScan(input: query)
-            // Insert into SwiftData
             modelContext.insert(wine)
             try? modelContext.save()
             self.scanState = .result(wine)
